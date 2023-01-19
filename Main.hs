@@ -110,10 +110,10 @@ sndMessage user io chats = do
     msg <- randMessage
     interval <- randInterval
     threadDelay interval
-    --putStrLn $ show threadId ++ " From: " ++ show user ++ " To: " ++ show(ru) ++ " " ++ show(msg)
+    putStrLn $ show threadId ++ " From: " ++ show user ++ " To: " ++ show(ru) ++ " " ++ show(msg)
     putMVar chats (user, ru, msg)
-    allMessage <- takeMVar chats -- ++ allMessage
-    putStrLn $ show allMessage
+    x <- takeMVar chats -- ++ allMessage
+    --putStrLn $ show allMessage
     --allMessage <- x
     sndMessage user io chats
 
